@@ -5,20 +5,24 @@ function Question({ question, onAnswered }) {
 
   // add useEffect code
 useEffect(() => {
-  setInterval(() => {setTimeRemaining(timeRemaining-1);},1000)
+  setTimeout(() => {setTimeRemaining(timeRemaining-1)},1000)
   if (timeRemaining===0) {
-    setTimeRemaining(0)
+    setTimeRemaining(10)
     onAnswered(false);
 
     
   }
 
 })
-  function handleAnswer(isCorrect) {
-    setTimeRemaining(10);
+// useEffect(()=>{
+//   setTimeRemaining(10)
+//   // handleAnswer(true)
+// })
+function handleAnswer(isCorrect) {
+  setTimeRemaining(timeRemaining);
 
-    onAnswered(isCorrect);
-  }
+  onAnswered(isCorrect);
+}
 
   const { id, prompt, answers, correctIndex } = question;
 
